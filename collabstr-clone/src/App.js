@@ -10,6 +10,10 @@ import FeaturesSection from './components/FeaturesSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import Track from './components/Track';
 import Campaigns from './components/Campaigns';
+import TrustedBrands from './components/TrustedBrands';
+import CaseStudies from './components/CaseStudies';
+import Testimonials from './components/Testimonials ';
+import YouTubeUGCSection from './components/YouTubeUGCSection';
 
 function App() {
   return (
@@ -25,6 +29,10 @@ function App() {
       <FeaturesSection />
       <Campaigns />
       <Track />
+      <TrustedBrands />
+      <CaseStudies />
+      <Testimonials />
+      <YouTubeUGCSection />
     </div>
   );
 }
