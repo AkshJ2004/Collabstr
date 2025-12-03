@@ -7,6 +7,9 @@ import CardSection from './components/CardSection';
 import CategorySection from './components/CategorySection';  
 import PressSection from './components/PressSection';
 import FeaturesSection from './components/FeaturesSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import Track from './components/Track';
+import Campaigns from './components/Campaigns';
 
 function App() {
   return (
@@ -18,7 +21,10 @@ function App() {
       <CardSection />
       <CategorySection />  
       <PressSection />
+      <HowItWorksSection />
       <FeaturesSection />
+      <Campaigns />
+      <Track />
     </div>
   );
 }
