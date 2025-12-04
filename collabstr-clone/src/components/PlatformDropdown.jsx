@@ -28,7 +28,7 @@ const PlatformDropdown = ({ options, value, onChange }) => {
     items[idx].focus();
 
     function onKey(e) {
-      if (!["ArrowDown","ArrowUp","Enter","Escape"].includes(e.key)) return;
+      if (!["ArrowDown", "ArrowUp", "Enter", "Escape"].includes(e.key)) return;
       e.preventDefault();
       if (e.key === "Escape") return setOpen(false);
       if (e.key === "Enter") {
@@ -42,7 +42,7 @@ const PlatformDropdown = ({ options, value, onChange }) => {
         next.focus();
       }
       if (e.key === "ArrowUp") {
-        const prev = document.activeElement.previousElementSibling || items[items.length-1];
+        const prev = document.activeElement.previousElementSibling || items[items.length - 1];
         prev.focus();
       }
     }
@@ -64,7 +64,7 @@ const PlatformDropdown = ({ options, value, onChange }) => {
           <label className="block text-[11px] font-medium text-gray-500 mb-1">Platform</label>
           <div className="flex items-center justify-between">
             <span className="text-gray-900">{options.find(o => o.value === value)?.label || options[0].label}</span>
-            <svg className="ml-2 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg className="ml-2 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
         </div>
       </button>
@@ -83,6 +83,7 @@ const PlatformDropdown = ({ options, value, onChange }) => {
               <div
                 key={opt.value}
                 role="option"
+                aria-selected={selected}
                 tabIndex={0}
                 data-value={opt.value}
                 onClick={() => { onChange(opt.value); setOpen(false); }}

@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatorCard from './CreatorCard';
+import CreatorCard from '../components/CreatorCard';
 import { creatorsData } from '../data/creatorsData';
 
 const FeaturedSection = () => {

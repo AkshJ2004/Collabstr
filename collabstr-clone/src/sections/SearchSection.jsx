@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
-import FilterButton from "./FilterButton";
-import PlatformDropdown from "./PlatformDropdown";
+import FilterButton from "../components/FilterButton";
+import PlatformDropdown from "../components/PlatformDropdown";
 
 const PLATFORMS = [
   { value: "any", label: "Any" },
@@ -60,10 +60,10 @@ const SearchSection = () => {
       {/* Filters Row */}
       <div className="mt-6 flex flex-wrap gap-3 items-center">
         <FilterButton label="Content Type" />
-        <FilterButton label="Followers"  />
+        <FilterButton label="Followers" />
         <FilterButton label="Location" />
         <FilterButton label="Price" />
-        <FilterButton label="Gender"  />
+        <FilterButton label="Gender" />
         <FilterButton label="Age" isPremium />
         <FilterButton label="Ethnicity" isPremium />
         <FilterButton label="Language" isPremium />

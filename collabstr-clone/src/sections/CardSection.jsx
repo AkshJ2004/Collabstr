@@ -1,5 +1,5 @@
 import React from "react";
-import InfluencerCard from "./InfluencerCard";
+import InfluencerCard from "../components/InfluencerCard";
 
 const CardSection = () => {
   return (
