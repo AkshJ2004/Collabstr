@@ -14,6 +14,9 @@ import TrustedBrands from './components/TrustedBrands';
 import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials ';
 import YouTubeUGCSection from './components/YouTubeUGCSection';
+import FAQSection from './components/FAQSection';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -33,6 +36,9 @@ function App() {
       <CaseStudies />
       <Testimonials />
       <YouTubeUGCSection />
+      <FAQSection />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
