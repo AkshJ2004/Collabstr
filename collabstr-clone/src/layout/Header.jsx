@@ -1,17 +1,22 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../backend/AuthContext";
 
 const Header = () => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    // Add your navigation logic here
+  const { user, isAdmin, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/');
   };
 
   return (
     <header className="site-header-clean">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        {/* LOGO */}
-        <div className="flex items-center gap-3 select-none">
+        {/* LOGO - Clickable to go home */}
+        <Link to="/" className="flex items-center gap-3 select-none hover:opacity-80 transition-opacity">
           <span className="logo-text">collabstr</span>
 
           {/* SPEECH-BUBBLE SVG ICON */}
@@ -40,22 +45,44 @@ const Header = () => {
               fill="url(#grad)"
             />
           </svg>
-        </div>
+        </Link>
 
         {/* NAV */}
         <nav className="flex items-center gap-8">
-          <button onClick={handleClick} className="nav-link">Search</button>
-          <button onClick={handleClick} className="nav-link">How It Works</button>
-          <button onClick={handleClick} className="nav-link">Pricing</button>
-          <button onClick={handleClick} className="nav-link">Login</button>
-          <button onClick={handleClick} className="nav-link">Join as Brand</button>
+          <button className="nav-link">Search</button>
+          <button className="nav-link">How It Works</button>
+          <button className="nav-link">Pricing</button>
 
-          <button
-            onClick={handleClick}
-            className="join-creator"
-          >
-            Join as Creator
-          </button>
+          {user ? (
+            <>
+              {/* Logged In State */}
+              <Link
+                to={isAdmin ? "/admin" : "/dashboard"}
+                className="nav-link"
+              >
+                Dashboard
+              </Link>
+              <button onClick={handleLogout} className="nav-link text-red-500">
+                Logout
+              </button>
+              <div className="flex items-center gap-2">
+                <img
+                  src={user.photoURL || `https://ui-avatars.com/api/?name=${user.email}&background=random&size=32`}
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Logged Out State */}
+              <Link to="/login" className="nav-link">Login</Link>
+              <button className="nav-link">Join as Brand</button>
+              <button className="join-creator">
+                Join as Creator
+              </button>
+            </>
+          )}
         </nav>
       </div>
     </header>
